@@ -1,6 +1,6 @@
 // 员工端H5前端应用
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'http://localhost:8082/api';
 let currentUser = null;
 let selectedCanteen = null;
 let selectedMenuId = null;

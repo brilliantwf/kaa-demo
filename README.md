@@ -49,7 +49,7 @@
 │                                             │
 │  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
 │  │ 员工端   │  │ 管理端   │  │ API服务  │  │
-│  │ (8081)   │  │ (8080)   │  │ (5000)   │  │
+│  │ (8081)   │  │ (8080)   │  │ (8082)   │  │
 │  │ H5页面   │  │ PC页面   │  │ Flask    │  │
 │  └────┬─────┘  └────┬─────┘  └────┬─────┘  │
 │       │             │             │         │
@@ -106,7 +106,7 @@ sqlite3 data/ordering_system.db < init-db.sql
 ```
 
 脚本会自动启动以下服务：
-- API服务: http://localhost:5000
+- API服务: http://localhost:8082
 - 管理端: http://localhost:8080
 - 员工端: http://localhost:8081
 
@@ -473,7 +473,7 @@ tail -f logs/user-web.log
 
 编辑 `api/config.py` 文件：
 ```python
-API_PORT = 5000  # 修改为其他端口
+API_PORT = 8082  # 修改为其他端口
 ```
 
 修改启动脚本中的前端端口：

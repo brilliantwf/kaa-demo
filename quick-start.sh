@@ -36,7 +36,7 @@ fi
 
 # 启动API服务
 echo "----------------------------------------"
-echo "启动API服务 (端口: 5000)..."
+echo "启动API服务 (端口: 8082)..."
 cd api
 nohup python app.py > ../logs/api.log 2>&1 &
 API_PID=$!
@@ -70,7 +70,7 @@ cd ..
 echo "========================================"
 echo "所有服务已启动！"
 echo "========================================"
-echo "API服务:     http://localhost:5000"
+echo "API服务:     http://localhost:8082"
 echo "管理端:      http://localhost:8080"
 echo "员工端:      http://localhost:8081"
 echo "========================================"

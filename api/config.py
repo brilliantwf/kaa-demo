@@ -7,7 +7,7 @@ DB_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'orde
 
 # API配置
 API_HOST = '0.0.0.0'
-API_PORT = 5000
+API_PORT = 8082
 DEBUG = True
 
 # 餐次时间限制
