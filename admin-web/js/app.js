@@ -208,6 +208,10 @@ async function loadDishes() {
                             <td>
                                 <div class="action-buttons">
                                     <button class="btn-view" onclick="viewDish(${d.id})">查看</button>
+                                    ${d.status === 'inactive' 
+                                        ? `<button class="btn-enable" onclick="enableDish(${d.id})">上架</button>`
+                                        : `<button class="btn-disable" onclick="disableDish(${d.id})">下架</button>`
+                                    }
                                 </div>
                             </td>
                         </tr>
@@ -495,4 +499,42 @@ function viewCanteen(id) {
 
 function viewDish(id) {
     alert(`查看菜品 ID: ${id}`);
+}
+
+// 上架菜品
+async function enableDish(dishId) {
+    if (!confirm('确认要上架该菜品吗？')) {
+        return;
+    }
+    
+    try {
+        await apiRequest(`/dishes/${dishId}/status`, {
+            method: 'PUT',
+            body: JSON.stringify({ status: 'active' })
+        });
+        
+        alert('菜品上架成功！');
+        loadDishes(); // 刷新菜品列表
+    } catch (error) {
+        // 错误已在apiRequest中处理
+    }
+}
+
+// 下架菜品
+async function disableDish(dishId) {
+    if (!confirm('确认要下架该菜品吗？')) {
+        return;
+    }
+    
+    try {
+        await apiRequest(`/dishes/${dishId}/status`, {
+            method: 'PUT',
+            body: JSON.stringify({ status: 'inactive' })
+        });
+        
+        alert('菜品下架成功！');
+        loadDishes(); // 刷新菜品列表
+    } catch (error) {
+        // 错误已在apiRequest中处理
+    }
 }
