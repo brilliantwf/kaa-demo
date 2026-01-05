@@ -1,0 +1,10 @@
+name: ordering-system
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+    - flask==3.0.0
+    - flask-cors==4.0.0

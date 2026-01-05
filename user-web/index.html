@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>员工端 - 集团员工内部用餐点餐平台</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 登录页面 -->
+        <div id="loginPage" class="page">
+            <div class="login-header">
+                <h1>员工点餐</h1>
+                <p>集团员工内部用餐点餐平台</p>
+            </div>
+            <div class="login-form">
+                <form id="loginForm">
+                    <div class="form-item">
+                        <input type="text" id="employeeId" placeholder="请输入工号" required>
+                    </div>
+                    <div class="form-item">
+                        <input type="password" id="password" placeholder="请输入密码" required>
+                    </div>
+                    <button type="submit" class="btn-primary btn-block">登录</button>
+                </form>
+                <div class="tips">
+                    <p>测试账号: EMP001-EMP010</p>
+                    <p>密码: user123</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主页面 -->
+        <div id="mainPage" class="page" style="display:none;">
+            <!-- 头部导航 -->
+            <header class="header">
+                <div class="header-content">
+                    <span id="userName">员工</span>
+                    <button id="logoutBtn" class="btn-logout">退出</button>
+                </div>
+            </header>
+
+            <!-- 底部导航 -->
+            <nav class="bottom-nav">
+                <a href="#" class="nav-item active" data-page="home">
+                    <span>首页</span>
+                </a>
+                <a href="#" class="nav-item" data-page="order">
+                    <span>点餐</span>
+                </a>
+                <a href="#" class="nav-item" data-page="orders">
+                    <span>订单</span>
+                </a>
+            </nav>
+
+            <!-- 首页 -->
+            <div id="homePage" class="content-page">
+                <div class="welcome-card">
+                    <h2>欢迎使用员工点餐系统</h2>
+                    <p id="currentDate"></p>
+                </div>
+
+                <div class="section">
+                    <h3>选择食堂</h3>
+                    <div id="canteenList" class="canteen-list"></div>
+                </div>
+
+                <div class="section">
+                    <h3>点餐日历</h3>
+                    <div id="calendarView" class="calendar-view"></div>
+                </div>
+            </div>
+
+            <!-- 点餐页面 -->
+            <div id="orderPage" class="content-page" style="display:none;">
+                <div class="order-header">
+                    <button id="backToHome" class="btn-back">← 返回</button>
+                    <div>
+                        <h3 id="selectedCanteen">选择食堂</h3>
+                        <p id="selectedMeal">选择餐次</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>选择日期和餐次</h3>
+                    <div class="meal-selector">
+                        <input type="date" id="orderDate">
+                        <select id="mealType">
+                            <option value="">选择餐次</option>
+                            <option value="breakfast">早餐</option>
+                            <option value="lunch">午餐</option>
+                            <option value="dinner">晚餐</option>
+                        </select>
+                        <button id="loadMenuBtn" class="btn-primary">查看菜单</button>
+                    </div>
+                </div>
+
+                <div id="menuSection" class="section" style="display:none;">
+                    <h3>今日菜单</h3>
+                    <div id="menuItems" class="menu-items"></div>
+                    
+                    <div class="cart-summary">
+                        <div class="cart-info">
+                            <span>已选 <span id="cartCount">0</span> 份</span>
+                        </div>
+                        <button id="submitOrderBtn" class="btn-primary btn-block">确认下单</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 我的订单页面 -->
+            <div id="ordersPage" class="content-page" style="display:none;">
+                <div class="section">
+                    <h3>我的订单</h3>
+                    <div class="order-filter">
+                        <button class="filter-btn active" data-status="">全部</button>
+                        <button class="filter-btn" data-status="placed">已下单</button>
+                        <button class="filter-btn" data-status="completed">已完成</button>
+                        <button class="filter-btn" data-status="cancelled">已取消</button>
+                    </div>
+                    <div id="ordersList" class="orders-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
