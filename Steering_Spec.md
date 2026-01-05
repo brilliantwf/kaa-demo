@@ -245,7 +245,7 @@ conn.close()
 
 **服务列表**:
 1. **api**: 后端API服务
-   - 端口: 5000
+   - 端口: 8082
    - 职责: 提供RESTful API
    - 技术: Python + Flask
 
@@ -881,7 +881,7 @@ POST /api/auth/wechat/login
 - **环境**: Conda (ordering-system)
 
 ### B. 端口分配
-- API服务: 5000
+- API服务: 8082
 - 管理端: 8080
 - 员工端: 8081
 
