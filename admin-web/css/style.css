@@ -210,6 +210,16 @@ table tr:hover {
     color: white;
 }
 
+.btn-enable {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-disable {
+    background-color: #FF9800;
+    color: white;
+}
+
 .status-badge {
     padding: 4px 12px;
     border-radius: 15px;
